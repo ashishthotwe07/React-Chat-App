@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ChatMessageSection.css";
-import { useSelector } from "react-redux";
-import { selectChatSelector } from "../../Redux/Reducers/conversationSlice";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectChatSelector,
+  sendMessage,
+} from "../../Redux/Reducers/conversationSlice";
 import { Link } from "react-router-dom";
 
 function ChatMessageSection() {
+  const dispatch = useDispatch();
   const user = useSelector(selectChatSelector);
-  console.log("userfrom ", user);
+  const [typedMessage, setTypedMessage] = useState("");
+
+  const sendMessages = () => {
+    if (typedMessage.trim() !== "") {
+      dispatch(sendMessage(typedMessage));
+      setTypedMessage(""); // Clear input after sending
+    }
+  };
 
   // Check if user exists and contains any data
-  const isEmptyUser = Object.keys(user).length === 0;
+  const isEmptyUser = !user;
 
   return (
     <div className="chat-message-container">
@@ -32,19 +43,17 @@ function ChatMessageSection() {
 
           {/* Messages Section */}
           <div className="messages-section">
-            {/* Example: Left-aligned user message */}
-            <div className="message user-message">
-              <p className="message-content">{user.messages[0]}</p>
-            </div>
+            {user.messages.map((message, index) => (
+              <div key={index} className="message user-message">
+                <p className="message-content">{message}</p>
+              </div>
+            ))}
 
-            {/* Example: Right-aligned owner message */}
-            <div className="message owner-message">
-              <p className="message-content">
-                Hi there! I'm doing well. Thanks!
-              </p>
-            </div>
-
-            {/* Add more messages as needed */}
+            {user.ownerMessages.map((message, index) => (
+              <div key={index} className="message owner-message">
+                <p className="message-content">{message}</p>
+              </div>
+            ))}
           </div>
 
           {/* Message Input Section */}
@@ -53,8 +62,12 @@ function ChatMessageSection() {
               type="text"
               className="message-input"
               placeholder="Type your message..."
+              value={typedMessage}
+              onChange={(e) => setTypedMessage(e.target.value)}
             />
-            <button className="send-button">Send</button>
+            <button className="send-button" onClick={sendMessages}>
+              Send
+            </button>
           </div>
         </>
       ) : (

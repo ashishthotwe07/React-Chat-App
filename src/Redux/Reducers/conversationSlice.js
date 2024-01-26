@@ -3,8 +3,7 @@ import Chats from "../../Data";
 
 const initialState = {
   conversationList: [],
-  selectedChat: {},
-  ownerMessages: [],
+  selectedChat: null, // Change to null initially
 };
 
 const conversationSlice = createSlice({
@@ -12,17 +11,25 @@ const conversationSlice = createSlice({
   initialState,
   reducers: {
     addContactToConversation(state, action) {
-      const conversation = Chats.find((contact, i) => i === action.payload);
-      state.conversationList.push(conversation);
+      const contactIndex = action.payload;
+      const existingContact = state.conversationList.find(
+        (contact) => contact.name === Chats[contactIndex].name
+      );
+      if (!existingContact) {
+        const conversation = Chats.find((contact, i) => i === contactIndex);
+        state.conversationList.push(conversation);
+      }
     },
+
     selectChat(state, action) {
       const user = Chats.find((contact) => contact.name === action.payload);
-      state.selectedChat = user;
-      console.log(state.selectedChat);
+      state.selectedChat = { ...user, ownerMessages: [] }; 
     },
+    
     sendMessage(state, action) {
-      console.log(state.selectedChat);
-      console.log(action.payload);
+      if (state.selectedChat) {
+        state.selectedChat.ownerMessages.push(action.payload);
+      }
     },
   },
 });
@@ -34,5 +41,3 @@ export const conversationSelector = (state) =>
   state.conversationReducer.conversationList;
 export const selectChatSelector = (state) =>
   state.conversationReducer.selectedChat;
-export const ownerMessagesSelector = (state) =>
-  state.conversationReducer.ownerMessages;

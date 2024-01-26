@@ -19,7 +19,6 @@ function ChatListSection() {
 
   const OpenChat = (index) => {
     dispatch(selectChat(index));
-    console.log("clicked on selectedChat" ,index);
   };
 
   const handleMouseLeave = () => {
