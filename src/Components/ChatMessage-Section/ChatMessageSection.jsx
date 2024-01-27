@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ChatMessageSection.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  conversationSelector,
   selectChatSelector,
   sendMessage,
 } from "../../Redux/Reducers/conversationSlice";
@@ -11,6 +12,7 @@ function ChatMessageSection() {
   const dispatch = useDispatch();
   const user = useSelector(selectChatSelector);
   const [typedMessage, setTypedMessage] = useState("");
+  const chatList = useSelector(conversationSelector); // Get the chat list
 
   const sendMessages = () => {
     if (typedMessage.trim() !== "") {
@@ -20,11 +22,14 @@ function ChatMessageSection() {
   };
 
   // Check if user exists and contains any data
-  const isEmptyUser = !user;
+  const isEmptyUser = !user || !user.name;
+
+  // Check if the selected user exists in the chat list
+  const isUserInChatList = !!chatList.find((chat) => chat.name === user?.name);
 
   return (
     <div className="chat-message-container">
-      {!isEmptyUser ? (
+      {isUserInChatList && !isEmptyUser ? (
         <>
           {/* Profile Section */}
           <div className="profile">
@@ -49,11 +54,13 @@ function ChatMessageSection() {
               </div>
             ))}
 
-            {user.ownerMessages.map((message, index) => (
-              <div key={index} className="message owner-message">
-                <p className="message-content">{message}</p>
-              </div>
-            ))}
+            {/* Check if ownerMessages exists before mapping */}
+            {user.ownerMessages &&
+              user.ownerMessages.map((message, index) => (
+                <div key={index} className="message owner-message">
+                  <p className="message-content">{message}</p>
+                </div>
+              ))}
           </div>
 
           {/* Message Input Section */}

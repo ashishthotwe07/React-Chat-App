@@ -1,16 +1,21 @@
+// ChatListSection.js
+
 import React, { useState } from "react";
 import "./ChatListSection.css";
 import { Link } from "react-router-dom";
 import {
   conversationSelector,
   selectChat,
-} from "../../Redux/Reducers/conversationSlice";
+  selectChatSelector,
+  deleteConversation, // Add this action
+} from "../../Redux/Reducers/conversationSlice"; // Import the new action
 import { useDispatch, useSelector } from "react-redux";
 
 function ChatListSection() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showTooltip, setShowTooltip] = useState(false);
   const conversationList = useSelector(conversationSelector);
+  const selectedChat = useSelector(selectChatSelector);
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
@@ -19,6 +24,10 @@ function ChatListSection() {
 
   const OpenChat = (index) => {
     dispatch(selectChat(index));
+  };
+
+  const handleDelete = (index) => {
+    dispatch(deleteConversation(index));
   };
 
   const handleMouseLeave = () => {
@@ -61,7 +70,11 @@ function ChatListSection() {
         {/* Map over filteredConversationList array */}
         {filteredConversationList.map((conversation, index) => (
           <div
-            className="conversation-item"
+            className={`conversation-item ${
+              selectedChat && selectedChat.name === conversation.name
+                ? "selected"
+                : ""
+            }`}
             key={index}
             onClick={() => OpenChat(conversation.name)}
           >
@@ -73,11 +86,29 @@ function ChatListSection() {
                 <p className="sender-name">{conversation.name}</p>
                 <p className="last-sent-time">8:30pm</p>
               </div>
-              {/* Assuming last message is stored in messages array */}
-              <p className="sender-message">
-                {conversation.messages.slice(-1)[0]}
-              </p>
+              {conversation.ownerMessage ? (
+                <p className="sender-message">
+                  {conversation.ownerMessage.slice(-1)[0]}
+                </p>
+              ) : (
+                <p className="sender-message">
+                  {conversation.messages.slice(-1)[0]}
+                </p>
+              )}
             </div>
+            {/* Add delete button */}
+            <button
+              className="delete-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(index);
+              }}
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/7844/7844035.png"
+                alt=""
+              />
+            </button>
           </div>
         ))}
       </div>
