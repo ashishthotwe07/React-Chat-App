@@ -13,7 +13,8 @@ function ChatMessageSection() {
   const user = useSelector(selectChatSelector);
   const [typedMessage, setTypedMessage] = useState("");
   const chatList = useSelector(conversationSelector); // Get the chat list
-
+  // console.log(user);
+  console.log("user from cms", user);
   const sendMessages = () => {
     if (typedMessage.trim() !== "") {
       dispatch(sendMessage(typedMessage));
