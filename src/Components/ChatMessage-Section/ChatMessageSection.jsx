@@ -3,6 +3,7 @@ import "./ChatMessageSection.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   conversationSelector,
+  ownerMessageSelector,
   selectChatSelector,
   sendMessage,
 } from "../../Redux/Reducers/conversationSlice";
@@ -13,7 +14,17 @@ function ChatMessageSection() {
   const user = useSelector(selectChatSelector);
   const [typedMessage, setTypedMessage] = useState("");
   const chatList = useSelector(conversationSelector); // Get the chat list
+  const messages = useSelector(ownerMessageSelector);
+  console.log(messages);
   // console.log(user);
+
+  // Filter messages based on the selected user
+  const selectedUserMessages = messages.filter(
+    (message) => message.user.name === user?.name
+  );
+
+  console.log(selectedUserMessages);
+
   console.log("user from cms", user);
   const sendMessages = () => {
     if (typedMessage.trim() !== "") {
@@ -35,11 +46,7 @@ function ChatMessageSection() {
           {/* Profile Section */}
           <div className="profile">
             <div className="user-dp">
-              <img
-                src="https://cdn-icons-png.flaticon.com/128/5397/5397601.png"
-                alt="User Profile"
-                className="user-dp-img"
-              />
+              <img src={user.dp} alt="User Profile" className="user-dp-img" />
             </div>
             <div className="userinfo">
               <p className="user-name">{user.name}</p>
@@ -50,18 +57,30 @@ function ChatMessageSection() {
           {/* Messages Section */}
           <div className="messages-section">
             {user.messages.map((message, index) => (
-              <div key={index} className="message user-message">
-                <p className="message-content">{message}</p>
+              <div className="userMessageContainer">
+                <div className="user-image">
+                  <img src={user.dp} alt="" />
+                </div>
+
+                <div key={index} className="message user-message">
+                  <p className="message-content">{message}</p>
+                </div>
               </div>
             ))}
 
             {/* Check if ownerMessages exists before mapping */}
-            {user.ownerMessages &&
-              user.ownerMessages.map((message, index) => (
+            {selectedUserMessages.map((messageObj, index) => (
+              <div className="ownerMessageContainer">
+
+
                 <div key={index} className="message owner-message">
-                  <p className="message-content">{message}</p>
+                  <p className="message-content">{messageObj.message}</p>
                 </div>
-              ))}
+                <div className="owner-image">
+                  <img src="https://images.unsplash.com/photo-1509933551745-514268e48884?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGluZGlhbiUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Message Input Section */}

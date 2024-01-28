@@ -1,11 +1,10 @@
-// conversationSlice.js
-
 import { createSlice } from "@reduxjs/toolkit";
 import Chats from "../../Data";
 
 const initialState = {
   conversationList: [],
   selectedChat: null,
+  ownerMessages: [], // Initialize ownerMessages separately
 };
 
 const conversationSlice = createSlice({
@@ -31,17 +30,18 @@ const conversationSlice = createSlice({
       );
       console.log(user);
       if (existingChat) {
-        existingChat.ownerMessages = [];
         state.selectedChat = existingChat;
       } else {
-        state.selectedChat = { ...user, ownerMessages: [] };
+        state.selectedChat = { ...user };
       }
     },
 
     sendMessage(state, action) {
       if (state.selectedChat) {
-        console.log(state.selectedChat);
-        state.selectedChat.ownerMessages.push(action.payload);
+        state.ownerMessages.push({
+          user: state.selectedChat,
+          message: action.payload,
+        });
       }
     },
 
@@ -73,3 +73,5 @@ export const conversationSelector = (state) =>
   state.conversationReducer.conversationList;
 export const selectChatSelector = (state) =>
   state.conversationReducer.selectedChat;
+export const ownerMessageSelector = (state) =>
+  state.conversationReducer.ownerMessages;

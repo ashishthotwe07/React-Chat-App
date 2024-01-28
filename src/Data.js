@@ -1,7 +1,7 @@
 const Chats = [
   {
     name: "Neha Gupta",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU4fHx1c2VyfGVufDB8fDB8fHww",
     contactNo: "+1987654321",
 
     ownerMessages: ["hii"],
@@ -13,7 +13,7 @@ const Chats = [
   },
   {
     name: "Rahul Verma",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
     contactNo: "+9876543210",
 
     ownerMessages: [],
@@ -25,7 +25,7 @@ const Chats = [
   },
   {
     name: "Pooja Singh",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
     contactNo: "+8765432109",
 
     ownerMessages: [],
@@ -37,7 +37,7 @@ const Chats = [
   },
   {
     name: "Sachin Yadav",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+2345678901",
 
     ownerMessages: [],
@@ -49,7 +49,7 @@ const Chats = [
   },
   {
     name: "Anjali Kapoor",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
     contactNo: "+3456789012",
 
     ownerMessages: [],
@@ -61,7 +61,7 @@ const Chats = [
   },
   {
     name: "Rohit Mehta",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+4567890123",
 
     ownerMessages: [],
@@ -73,7 +73,7 @@ const Chats = [
   },
   {
     name: "Priya Sharma",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1499887142886-791eca5918cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+5678901234",
 
     ownerMessages: [],
@@ -85,7 +85,7 @@ const Chats = [
   },
   {
     name: "Vikram Singh",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODZ8fGluZGlhbiUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3Dhttps://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODZ8fGluZGlhbiUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
     contactNo: "+6789012345",
 
     ownerMessages: [],
@@ -93,7 +93,7 @@ const Chats = [
   },
   {
     name: "Kritika Verma",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://plus.unsplash.com/premium_photo-1688350808212-4e6908a03925?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+7890123456",
 
     ownerMessages: [],
@@ -105,7 +105,7 @@ const Chats = [
   },
   {
     name: "Amit Patel",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+   dp:"https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+8901234567",
 
     ownerMessages: [],
@@ -117,7 +117,7 @@ const Chats = [
   },
   {
     name: "Sonia Yadav",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp:"https://images.unsplash.com/photo-1619895862022-09114b41f16f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+9012345678",
 
     ownerMessages: [],
@@ -129,7 +129,7 @@ const Chats = [
   },
   {
     name: "Manish Kapoor",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1621592484082-2d05b1290d7a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+1098765432",
 
     ownerMessages: [],
@@ -141,7 +141,7 @@ const Chats = [
   },
   {
     name: "Tanvi Mehta",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1534180477871-5d6cc81f3920?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+2109876543",
 
     ownerMessages: [],
@@ -153,7 +153,7 @@ const Chats = [
   },
   {
     name: "Arjun Sharma",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+3210987654",
 
     ownerMessages: [],
@@ -165,7 +165,7 @@ const Chats = [
   },
   {
     name: "Nehal Gupta",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAyfHx1c2VyfGVufDB8fDB8fHww",
     contactNo: "+4321098765",
 
     ownerMessages: [],
@@ -173,7 +173,7 @@ const Chats = [
   },
   {
     name: "Ritu Singh",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+5432109876",
 
     ownerMessages: [],
@@ -185,7 +185,7 @@ const Chats = [
   },
   {
     name: "Karan Yadav",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
     contactNo: "+6543210987",
 
     ownerMessages: [],
@@ -197,7 +197,7 @@ const Chats = [
   },
   {
     name: "Sanya Kapoor",
-    dp: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    dp: "https://images.unsplash.com/photo-1533689476487-034f57831a58?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMxfHx1c2VyfGVufDB8fDB8fHww",
     contactNo: "+7654321098",
     ownerMessages: ["hii"],
     messages: [
