@@ -1,5 +1,38 @@
 const Chats = [
   {
+    name: "Ritu Singh",
+    dp: "https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
+    contactNo: "+5432109876",
+
+    messages: [
+      "Hey Any news to share?",
+      "Hello!",
+      "How's everything on your end?",
+    ],
+  },
+  {
+    name: "Karan Yadav",
+    dp: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
+    contactNo: "+6543210987",
+
+    messages: [
+      "Hello bro!",
+      "Hi! Any plans for the day?",
+      "What's new in your world?",
+    ],
+  },
+  {
+    name: "Sanya Kapoor",
+    dp: "https://images.unsplash.com/photo-1533689476487-034f57831a58?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMxfHx1c2VyfGVufDB8fDB8fHww",
+    contactNo: "+7654321098",
+
+    messages: [
+      "Hi Any interesting updates?",
+      "Hello there!",
+      "How's your day been?",
+    ],
+  },
+  {
     name: "Neha Gupta",
     dp: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU4fHx1c2VyfGVufDB8fDB8fHww",
     contactNo: "+1987654321",
@@ -30,6 +63,28 @@ const Chats = [
       "Hi! How have you been?",
       "Hey there!",
       "What's new on your end?",
+    ],
+  },
+  {
+    name: "Tanvi Mehta",
+    dp: "https://images.unsplash.com/photo-1534180477871-5d6cc81f3920?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
+    contactNo: "+2109876543",
+
+    messages: [
+      "Hi T Any interesting updates?",
+      "Hello there!",
+      "How's everything going for you?",
+    ],
+  },
+  {
+    name: "Sonia Yadav",
+    dp: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
+    contactNo: "+9012345678",
+
+    messages: [
+      "Hello !",
+      "Hi! How's your day been?",
+      "Anything exciting happening?",
     ],
   },
   {
@@ -105,17 +160,7 @@ const Chats = [
       "What's on your mind today?",
     ],
   },
-  {
-    name: "Sonia Yadav",
-    dp: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
-    contactNo: "+9012345678",
 
-    messages: [
-      "Hello !",
-      "Hi! How's your day been?",
-      "Anything exciting happening?",
-    ],
-  },
   {
     name: "Manish Kapoor",
     dp: "https://images.unsplash.com/photo-1621592484082-2d05b1290d7a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
