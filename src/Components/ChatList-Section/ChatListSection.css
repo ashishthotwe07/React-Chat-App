@@ -140,10 +140,14 @@
 .sender-message {
   margin: 0;
   color: #777;
-  width: 150px;
+  display: flex;
+  width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.sender-message p {
+  margin: 0;
 }
 
 .last-sent-time {

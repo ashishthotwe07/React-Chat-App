@@ -7,7 +7,8 @@ import {
   conversationSelector,
   selectChat,
   selectChatSelector,
-  deleteConversation, // Add this action
+  deleteConversation,
+  ownerMessageSelector, // Add this action
 } from "../../Redux/Reducers/conversationSlice"; // Import the new action
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,6 +22,7 @@ function ChatListSection() {
   const handleMouseEnter = () => {
     setShowTooltip(true);
   };
+  const messages = useSelector(ownerMessageSelector);
 
   const OpenChat = (index) => {
     dispatch(selectChat(index));
@@ -37,6 +39,15 @@ function ChatListSection() {
   // Filter conversation list based on search term
   const filteredConversationList = conversationList.filter((conversation) =>
     conversation.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const conversationWithMessages = filteredConversationList.map(
+    (conversation) => {
+      const selectedUserMessages = messages.filter(
+        (message) => message.user.name === conversation.name
+      );
+      return { ...conversation, selectedUserMessages };
+    }
   );
 
   return (
@@ -86,15 +97,20 @@ function ChatListSection() {
                 <p className="sender-name">{conversation.name}</p>
                 <p className="last-sent-time">8:30pm</p>
               </div>
-              {conversation.ownerMessage ? (
-                <p className="sender-message">
-                  {conversation.ownerMessage.slice(-1)[0]}
-                </p>
-              ) : (
-                <p className="sender-message">
-                  {conversation.messages.slice(-1)[0]}
-                </p>
-              )}
+              <div className="sender-message">
+                {conversationWithMessages[index].selectedUserMessages.length >
+                0 ? (
+                  <p>
+                    {
+                      conversationWithMessages[
+                        index
+                      ].selectedUserMessages.slice(-1)[0].message
+                    }
+                  </p>
+                ) : (
+                  <p>{conversation.messages.slice(-1)[0]}</p>
+                )}
+              </div>
             </div>
             {/* Add delete button */}
             <button

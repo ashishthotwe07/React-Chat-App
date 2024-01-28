@@ -28,7 +28,6 @@ const conversationSlice = createSlice({
       const existingChat = state.conversationList.find(
         (chat) => chat.name === user.name
       );
-      console.log(user);
       if (existingChat) {
         state.selectedChat = existingChat;
       } else {

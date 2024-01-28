@@ -15,17 +15,11 @@ function ChatMessageSection() {
   const [typedMessage, setTypedMessage] = useState("");
   const chatList = useSelector(conversationSelector); // Get the chat list
   const messages = useSelector(ownerMessageSelector);
-  console.log(messages);
-  // console.log(user);
 
-  // Filter messages based on the selected user
   const selectedUserMessages = messages.filter(
     (message) => message.user.name === user?.name
   );
 
-  console.log(selectedUserMessages);
-
-  console.log("user from cms", user);
   const sendMessages = () => {
     if (typedMessage.trim() !== "") {
       dispatch(sendMessage(typedMessage));
@@ -57,7 +51,7 @@ function ChatMessageSection() {
           {/* Messages Section */}
           <div className="messages-section">
             {user.messages.map((message, index) => (
-              <div className="userMessageContainer">
+              <div key={index} className="userMessageContainer">
                 <div className="user-image">
                   <img src={user.dp} alt="" />
                 </div>
@@ -70,14 +64,15 @@ function ChatMessageSection() {
 
             {/* Check if ownerMessages exists before mapping */}
             {selectedUserMessages.map((messageObj, index) => (
-              <div className="ownerMessageContainer">
-
-
+              <div key={index} className="ownerMessageContainer">
                 <div key={index} className="message owner-message">
                   <p className="message-content">{messageObj.message}</p>
                 </div>
                 <div className="owner-image">
-                  <img src="https://images.unsplash.com/photo-1509933551745-514268e48884?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGluZGlhbiUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                  <img
+                    src="https://images.unsplash.com/photo-1509933551745-514268e48884?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGluZGlhbiUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D"
+                    alt=""
+                  />
                 </div>
               </div>
             ))}
