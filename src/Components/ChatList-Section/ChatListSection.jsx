@@ -1,5 +1,4 @@
-// ChatListSection.js
-
+// Importing necessary libraries and components
 import React, { useState } from "react";
 import "./ChatListSection.css";
 import { Link } from "react-router-dom";
@@ -8,32 +7,40 @@ import {
   selectChat,
   selectChatSelector,
   deleteConversation,
-  ownerMessageSelector, // Add this action
-} from "../../Redux/Reducers/conversationSlice"; // Import the new action
+  ownerMessageSelector, // New action imported
+} from "../../Redux/Reducers/conversationSlice"; // Importing conversation slice from Redux
 import { useDispatch, useSelector } from "react-redux";
 
+// Functional component for rendering the chat list section
 function ChatListSection() {
+  // State variables
   const [searchTerm, setSearchTerm] = useState("");
   const [showTooltip, setShowTooltip] = useState(false);
+
+  // Redux state and dispatch
   const conversationList = useSelector(conversationSelector);
   const selectedChat = useSelector(selectChatSelector);
+  const messages = useSelector(ownerMessageSelector);
   const dispatch = useDispatch();
 
+  // Handler for showing tooltip on mouse enter
   const handleMouseEnter = () => {
     setShowTooltip(true);
   };
-  const messages = useSelector(ownerMessageSelector);
 
+  // Handler for hiding tooltip on mouse leave
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
+  };
+
+  // Function to open a chat when clicked
   const OpenChat = (index) => {
     dispatch(selectChat(index));
   };
 
+  // Function to delete a conversation
   const handleDelete = (index) => {
     dispatch(deleteConversation(index));
-  };
-
-  const handleMouseLeave = () => {
-    setShowTooltip(false);
   };
 
   // Filter conversation list based on search term
@@ -41,6 +48,7 @@ function ChatListSection() {
     conversation.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Mapping conversation list with messages
   const conversationWithMessages = filteredConversationList.map(
     (conversation) => {
       const selectedUserMessages = messages.filter(
@@ -52,6 +60,7 @@ function ChatListSection() {
 
   return (
     <div className="chat-list-container">
+      {/* Search input for filtering conversations */}
       <div className="chat-list-search">
         <input
           type="search"
@@ -60,6 +69,7 @@ function ChatListSection() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
+      {/* Button to add conversation */}
       <div className="chat-list-Add-conversation-btn">
         <p className="conversation-title">Conversation</p>
         <button
@@ -67,6 +77,7 @@ function ChatListSection() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
+          {/* Link to add conversation */}
           <Link to={"/contacts"}>
             <img
               src="https://cdn-icons-png.flaticon.com/128/8162/8162980.png"
@@ -74,9 +85,11 @@ function ChatListSection() {
             />
           </Link>
         </button>
+        {/* Tooltip for add conversation button */}
         {showTooltip && <div className="tooltip">Add Conversation</div>}
       </div>
 
+      {/* Render conversation list */}
       <div className="conversation-list">
         {/* Map over filteredConversationList array */}
         {filteredConversationList.map((conversation, index) => (
@@ -89,14 +102,17 @@ function ChatListSection() {
             key={index}
             onClick={() => OpenChat(conversation.name)}
           >
+            {/* Profile picture */}
             <div className="profile-picture">
               <img src={conversation.dp} alt="Profile" className="sender-dp" />
             </div>
+            {/* Details of the conversation */}
             <div className="details">
               <div className="name-last-seen">
                 <p className="sender-name">{conversation.name}</p>
                 <p className="last-sent-time">8:30pm</p>
               </div>
+              {/* Last message sent */}
               <div className="sender-message">
                 {conversationWithMessages[index].selectedUserMessages.length >
                 0 ? (
@@ -112,7 +128,7 @@ function ChatListSection() {
                 )}
               </div>
             </div>
-            {/* Add delete button */}
+            {/* Delete button for conversation */}
             <button
               className="delete-button"
               onClick={(e) => {
@@ -132,4 +148,5 @@ function ChatListSection() {
   );
 }
 
+// Exporting the component
 export default ChatListSection;

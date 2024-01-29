@@ -1,16 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Chats from "../../Data";
 
+// Initial state for the conversation slice
 const initialState = {
   conversationList: [],
   selectedChat: null,
-  ownerMessages: [], // Initialize ownerMessages separately
+  ownerMessages: [], // Initializing ownerMessages separately
 };
 
+// Creating the conversation slice using createSlice
 const conversationSlice = createSlice({
   name: "conversation",
   initialState,
   reducers: {
+    // Reducer to add a contact to the conversation list
     addContactToConversation(state, action) {
       const contactIndex = action.payload;
       const existingContact = state.conversationList.find(
@@ -22,6 +25,7 @@ const conversationSlice = createSlice({
       }
     },
 
+    // Reducer to select a chat
     selectChat(state, action) {
       const user = Chats.find((contact) => contact.name === action.payload);
       // Check if the selected chat already exists in conversationList
@@ -35,6 +39,7 @@ const conversationSlice = createSlice({
       }
     },
 
+    // Reducer to send a message
     sendMessage(state, action) {
       if (state.selectedChat) {
         state.ownerMessages.push({
@@ -44,6 +49,7 @@ const conversationSlice = createSlice({
       }
     },
 
+    // Reducer to delete a conversation
     deleteConversation(state, action) {
       const index = action.payload;
 
@@ -61,6 +67,7 @@ const conversationSlice = createSlice({
   },
 });
 
+// Extracting reducer and actions from the conversation slice
 export const conversationReducer = conversationSlice.reducer;
 export const {
   addContactToConversation,
@@ -68,6 +75,8 @@ export const {
   sendMessage,
   deleteConversation,
 } = conversationSlice.actions;
+
+// Selector functions to access conversation data from the state
 export const conversationSelector = (state) =>
   state.conversationReducer.conversationList;
 export const selectChatSelector = (state) =>
