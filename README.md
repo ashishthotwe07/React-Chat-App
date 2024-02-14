@@ -1,4 +1,4 @@
-# Redux Chat App
+# React Chat App
 
 ## Overview
 The Redux Chat App is a simple web application built using React and Redux Toolkit. It serves as an educational project to learn and practice Redux state management in the context of a chat application. The app allows users to view a list of conversations, select a conversation to view messages, and send messages (though the messages are currently dummy data).
